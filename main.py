@@ -13,9 +13,20 @@ from PyQt5.QtGui import QFont
 from main_window import MainWindow
 
 
+def resource_path(relative_path):
+    """ Lấy đường dẫn tuyệt đối đến tài nguyên, hỗ trợ cả lúc dev và đóng gói .exe """
+    try:
+        # PyInstaller tạo thư mục tạm và lưu đường dẫn ở _MEIPASS
+        base_path = sys._MEIPASS
+    except Exception:
+        # Nếu đang chạy file .py bình thường
+        base_path = os.path.abspath(".")
+
+    return os.path.join(base_path, relative_path)
+
 def load_stylesheet(app: QApplication):
     """Load the QSS stylesheet."""
-    qss_path = os.path.join(os.path.dirname(__file__), "resources", "style.qss")
+    qss_path = resource_path("resources/style.qss")
     if os.path.exists(qss_path):
         with open(qss_path, "r", encoding="utf-8") as f:
             app.setStyleSheet(f.read())
