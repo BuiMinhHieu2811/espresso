@@ -1,5 +1,0 @@
-PyQt5>=5.15
-pyserial>=3.5
-.exe packaging: 
-    pip install pyinstaller
-    python -m PyInstaller main.spec

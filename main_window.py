@@ -115,7 +115,7 @@ class MainWindow(QMainWindow):
 
         conn_layout.addWidget(QLabel("Baud:"))
         self.combo_baud = QComboBox()
-        self.combo_baud.addItems(["9600", "19200", "38400", "57600", "115200"])
+        self.combo_baud.addItems(["4800", "9600", "19200", "38400", "57600", "115200"])
         self.combo_baud.setCurrentText("115200")
         conn_layout.addWidget(self.combo_baud)
 
